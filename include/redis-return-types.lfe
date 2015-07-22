@@ -16,6 +16,7 @@
   ([(list x)] (when (is_binary x))
     ; we trust redis to have a stable list of return atoms
     (list_to_atom (: string to_lower (binary_to_list x))))
+  ([(tuple 'ok 'nil)] 'nil)
   ([(tuple pid status)] (when (is_pid pid)) (tuple pid (redis-return-status status))))
 
 ; You can increment by an integer and get an integer back, so this has
