@@ -2,10 +2,10 @@
  (export all))
 
 (eval-when-compile
- (include-file "include/utils.lfe"))
+ (include-lib "er/include/utils.lfe"))
 
-(include-file "include/utils.lfe")
-(include-file "include/utils-macro.lfe")
+(include-lib "er/include/utils.lfe")
+(include-lib "er/include/utils-macro.lfe")
 
 (defun dump_all (server)
  (dump server #b("*")))

@@ -2,7 +2,7 @@
   (export all))
 
 (eval-when-compile 
-  (include-file "include/utils.lfe"))
+  (include-lib "er/include/utils.lfe"))
 
 ; "fixed" stands for a fixed number of arguments, not "fixed" as in
 ; the other verions of this are broken
@@ -50,11 +50,11 @@
                    (,wrapper-fun-name (: er_redis q client (list ,cmd ,@(la args))))))))
      `(progn ,@funs))))
 
-(include-file "include/redis-return-types.lfe")
+(include-lib "er/include/redis-return-types.lfe")
 
-(include-file "include/utils-macro.lfe")
+(include-lib "er/include/utils-macro.lfe")
 
-(include-file "include/redis-cmds.lfe")
+(include-lib "er/include/redis-cmds.lfe")
 
 (defun er_next (client)
   (redis-return-strip-ok (: gen_server call client 'next 'infinity)))
